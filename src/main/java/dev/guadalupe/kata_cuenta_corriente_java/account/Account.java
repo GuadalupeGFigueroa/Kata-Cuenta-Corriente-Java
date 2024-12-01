@@ -27,12 +27,20 @@ public class Account {
         return balance;
     }
 
+    protected void setBalance(float balance) {
+        this.balance = balance;
+    }
+
     public int getNumDeposits() {
         return numDeposits;
     }
 
     public int getNumWithdrawals() {
         return numWithdrawals;
+    }
+
+    public void setNumWithdrawals(int numWithdrawals) {
+        this.numWithdrawals = numWithdrawals;
     }
 
     public float getAnnualRate() {
