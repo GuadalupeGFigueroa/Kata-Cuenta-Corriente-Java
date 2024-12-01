@@ -1,5 +1,8 @@
 package dev.guadalupe.kata_cuenta_corriente_java.account;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Account {
     private long id; //Se cambia el id como private porque no debe ser modificado directamente por fuera de la clase
     private float balance;
@@ -92,6 +95,7 @@ public class Account {
     public void calculateMonthlyInterest() {
         float monthlyRate = annualRate / 12 / 100; //Convertir la tasa anual a mensual
         balance += balance * monthlyRate; //Actualizar el saldo
+        balance = round(balance, 2); //Redondear el saldo
 
         /*Otra forma de hacerlo: 
          * 
@@ -115,6 +119,15 @@ public class Account {
             balance = 0;
         }
         calculateMonthlyInterest();
+    }
+
+    @SuppressWarnings("deprecation")
+    private float round(float value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, BigDecimal.ROUND_HALF_UP);
+        return bd.floatValue();
     }
 
     public String printAccountDetails() {
