@@ -1,19 +1,19 @@
 package dev.guadalupe.kata_cuenta_corriente_java.account;
 
 public class SavingAccount extends Account {
-    private boolean isActive; // Determina si la cuenta está activa
+    private boolean isActive; 
 
     public SavingAccount(long id, float balance, float annualRate, float monthlyFee) {
         super(id, balance, annualRate, monthlyFee);
-        updateAccountStatus(); // Determinar si la cuenta está activa
+        updateAccountStatus(); 
     }
 
-    // Método privado para actualizar el estado de la cuenta
+    
     private void updateAccountStatus() {
         this.isActive = getBalance() >= 10000;
     }
 
-    // Redefinir método withdraw
+    
     @Override
     public void withdraw(float amount) {
         if (!isActive) {
@@ -25,33 +25,33 @@ public class SavingAccount extends Account {
         } else {
             throw new IllegalArgumentException("Invalid withdrawal amount.");
         }
-        updateAccountStatus(); // Actualizar el estado de la cuenta
+        updateAccountStatus(); 
     }
 
-    // Redefinir método deposit
+    
     @Override
     public void deposit(float amount) {
         if (amount > 0) {
             setBalance(getBalance() + amount);
             setNumDeposits(getNumDeposits() + 1);
-            updateAccountStatus(); // Actualizar el estado de la cuenta
+            updateAccountStatus(); 
         } else {
             throw new IllegalArgumentException("The deposit amount must be greater than zero.");
         }
     }
 
-    // Redefinir método generateMonthlyStatement
+    
     @Override
     public void generateMonthlyStatement() {
         if (getNumWithdrawals() > 4) {
             int extraWithdrawals = getNumWithdrawals() - 4;
-            setMonthlyFee(getMonthlyFee() + (extraWithdrawals * 1000)); // Cobrar $1000 por retiro adicional
+            setMonthlyFee(getMonthlyFee() + (extraWithdrawals * 1000));
         }
-        super.generateMonthlyStatement(); // Aplicar la lógica general
-        updateAccountStatus(); // Actualizar el estado de la cuenta
+        super.generateMonthlyStatement(); 
+        updateAccountStatus(); 
     }
 
-    // Redefinir método printAccountDetails
+   
     @Override
     public String printAccountDetails() {
         return super.printAccountDetails() +

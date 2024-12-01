@@ -8,13 +8,13 @@ class SavingAccountTest {
     @Test
     void testInitialAccountStatus() {
         SavingAccount account = new SavingAccount(1L, 5000, 3.5f, 50);
-        assertFalse(account.printAccountDetails().contains("Active")); // Cuenta debe estar inactiva
+        assertFalse(account.printAccountDetails().contains("Active")); 
     }
 
     @Test
     void testActivateAccountAfterDeposit() {
         SavingAccount account = new SavingAccount(1L, 5000, 3.5f, 50);
-        account.deposit(6000); // Activar la cuenta con un depósito
+        account.deposit(6000); 
         assertTrue(account.printAccountDetails().contains("Active"));
     }
 
@@ -28,7 +28,7 @@ class SavingAccountTest {
     void testWithdrawFromActiveAccount() {
         SavingAccount account = new SavingAccount(1L, 15000, 3.5f, 50);
         account.withdraw(5000);
-        assertEquals(10000, account.getBalance(), 0.01f); // Saldo correcto
+        assertEquals(10000, account.getBalance(), 0.01f); 
     }
 
     @Test
@@ -38,10 +38,10 @@ class SavingAccountTest {
         account.withdraw(1000);
         account.withdraw(1000);
         account.withdraw(1000);
-        account.withdraw(1000); // Más de 4 retiros
+        account.withdraw(1000); 
 
         account.generateMonthlyStatement();
-        assertEquals(19950.53, account.getBalance(), 0.01f); // Saldo después de la tarifa
+        assertEquals(19950.53, account.getBalance(), 0.01f); 
     }
 
     @Test

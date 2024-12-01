@@ -8,7 +8,7 @@ class CheckingAccountTest {
     @Test
     void testWithdrawWithoutOverdraft() {
         CheckingAccount account = new CheckingAccount(1L, 5000, 3.5f, 50);
-        account.withdraw(3000); // Retirar una cantidad menor al saldo disponible
+        account.withdraw(3000); 
         assertEquals(2000, account.getBalance(), 0.01f);
         assertEquals(0, account.getOverdraft(), 0.01f);
     }
@@ -16,15 +16,15 @@ class CheckingAccountTest {
     @Test
     void testWithdrawWithOverdraft() {
         CheckingAccount account = new CheckingAccount(1L, 5000, 3.5f, 50);
-        account.withdraw(7000); // Retirar una cantidad mayor al saldo
-        assertEquals(0, account.getBalance(), 0.01f); // Saldo debe quedar en 0
-        assertEquals(2000, account.getOverdraft(), 0.01f); // Sobregiro acumulado
+        account.withdraw(7000); 
+        assertEquals(0, account.getBalance(), 0.01f); 
+        assertEquals(2000, account.getOverdraft(), 0.01f); 
     }
 
     @Test
     void testDepositWithoutOverdraft() {
         CheckingAccount account = new CheckingAccount(1L, 5000, 3.5f, 50);
-        account.deposit(2000); // Depositar sin sobregiro
+        account.deposit(2000); 
         assertEquals(7000, account.getBalance(), 0.01f);
         assertEquals(0, account.getOverdraft(), 0.01f);
     }
@@ -32,17 +32,17 @@ class CheckingAccountTest {
     @Test
     void testDepositWithOverdraft() {
         CheckingAccount account = new CheckingAccount(1L, 0, 3.5f, 50);
-        account.withdraw(2000); // Crear un sobregiro
-        account.deposit(1500); // Depositar menos del sobregiro
-        assertEquals(0, account.getBalance(), 0.01f); // Saldo sigue en 0
-        assertEquals(500, account.getOverdraft(), 0.01f); // Parte del sobregiro cubierto
+        account.withdraw(2000); 
+        account.deposit(1500); 
+        assertEquals(0, account.getBalance(), 0.01f); 
+        assertEquals(500, account.getOverdraft(), 0.01f); 
     }
 
     @Test
     void testGenerateMonthlyStatement() {
         CheckingAccount account = new CheckingAccount(1L, 5000, 3.5f, 50);
         account.generateMonthlyStatement();
-        assertEquals(4950.15, account.getBalance(), 0.01f); // Saldo después de interés y tarifa
+        assertEquals(4950.15, account.getBalance(), 0.01f); 
     }
 
     @Test

@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 
 public class Account {
-    private long id; //Se cambia el id como private porque no debe ser modificado directamente por fuera de la clase
+    private long id; 
     private float balance;
     private int numDeposits;
     private int numWithdrawals;
@@ -15,13 +15,13 @@ public class Account {
     public Account(long id, float balance, float annualRate, float monthlyFee) {
         this.id = id;
         this.balance = balance;
-        this.numDeposits = 0; // Inicializar en 0
-        this.numWithdrawals = 0; // Inicializar en 0
+        this.numDeposits = 0; 
+        this.numWithdrawals = 0; 
         this.annualRate = annualRate;
         this.monthlyFee = monthlyFee;
     }
 
-    // Getters (no setters para atributos inmutables como id)
+   
     public long getId() {
         return id;
     }
@@ -67,11 +67,11 @@ public class Account {
         this.monthlyFee = monthlyFee;
     }
 
-    // Métodos funcionales
+    
     public void deposit(float amount) {
-        if (amount > 0) { // Verificar que la cantidad sea válida
+        if (amount > 0) {
             balance += amount;
-            numDeposits++; // Incrementar el contador de consignaciones
+            numDeposits++; 
         } else {
             throw new IllegalArgumentException("The deposit amount must be greater than zero.");
         }
@@ -79,10 +79,10 @@ public class Account {
     
 
     public void withdraw(float amount) {
-        if (amount > 0) { // Verificar que la cantidad sea válida
-            if (amount <= balance) { // Verificar si hay saldo suficiente
+        if (amount > 0) { 
+            if (amount <= balance) { 
                 balance -= amount;
-                numWithdrawals++; // Incrementar el contador de retiros
+                numWithdrawals++; 
             } else {
                 throw new IllegalArgumentException("Insufficient balance for this withdrawal.");
             }
@@ -93,24 +93,10 @@ public class Account {
     
 
     public void calculateMonthlyInterest() {
-        float monthlyRate = annualRate / 12 / 100; //Convertir la tasa anual a mensual
-        balance += balance * monthlyRate; //Actualizar el saldo
-        balance = round(balance, 2); //Redondear el saldo
+        float monthlyRate = annualRate / 12 / 100; 
+        balance += balance * monthlyRate;
+        balance = round(balance, 2); 
 
-        /*Otra forma de hacerlo: 
-         * 
-        public void calculateMonthlyInterest() {
-            float monthlyRate = annualRate / 12 / 100;
-            float interest = balance * monthlyRate; // Calcular el interés
-            balance += interest; // Actualizar el saldo
-        }
-
-        Ambas formas son válidas, pero depende de tu caso de uso:
-
-        Si necesitas mostrar el interés calculado en un reporte o hacer operaciones adicionales con ese valor, es mejor usar la variable interest.
-        Si el único propósito es actualizar el saldo, la forma compacta (sin variable intermedia) es suficiente.
-        }   
-         */
     }
 
     public void generateMonthlyStatement() {
