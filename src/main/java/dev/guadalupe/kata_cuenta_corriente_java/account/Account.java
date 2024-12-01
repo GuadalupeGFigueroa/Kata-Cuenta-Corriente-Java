@@ -1,7 +1,7 @@
 package dev.guadalupe.kata_cuenta_corriente_java.account;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
+
 
 public class Account {
     private long id; //Se cambia el id como private porque no debe ser modificado directamente por fuera de la clase
