@@ -37,9 +37,9 @@ Diagrama UML de clases
 
 Tests unitarios obligatorios (cobertura mínima 70%)
 <p align="center"> 
-  <img src="https://github.com/GuadalupeGFigueroa/Kata-Cuenta-Corriente-Java/blob/dev/Test%20coverage%201.png"width=70% height=50%>
+  <img src="https://github.com/GuadalupeGFigueroa/Kata-Cuenta-Corriente-Java/blob/dev/Test%20coverage%201.png"width=40% height=25%>
 </p>
 
 <p align="center"> 
-  <img src="https://github.com/GuadalupeGFigueroa/Kata-Cuenta-Corriente-Java/blob/dev/Test%20coverage%202%20(87%2C27%25).png"width=70% height=50%>
+  <img src="https://github.com/GuadalupeGFigueroa/Kata-Cuenta-Corriente-Java/blob/dev/Test%20coverage%202%20(87%2C27%25).png"width=40% height=25%>
 </p>
