@@ -1,6 +1,5 @@
 package dev.guadalupe.kata_cuenta_corriente_java.account;
 
-import dev.guadalupe.kata_cuenta_corriente_java.account.Account;
 
 public class CheckingAccount extends Account {
 
@@ -34,7 +33,7 @@ public class CheckingAccount extends Account {
   //Redefinir el método deposit
   @Override
   public void deposit(float amount) {
-    if amount > 0 { // Si el importe es mayor de 0
+    if (amount > 0) { // Si el importe es mayor de 0
       if (overdraft > 0) { // Si hay sobregiro
         if (amount >= overdraft) { // Si el importe es mayor o igual al sobregiro
           amount -= overdraft; // Restar el sobregiro al importe

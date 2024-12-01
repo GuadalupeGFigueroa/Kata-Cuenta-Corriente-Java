@@ -35,6 +35,11 @@ public class Account {
         return numDeposits;
     }
 
+    protected void setNumDeposits(int numDeposits) {
+        this.numDeposits = numDeposits;
+    }
+    
+
     public int getNumWithdrawals() {
         return numWithdrawals;
     }
