@@ -13,6 +13,15 @@ target/
 .springBeans
 .sts4-cache
 
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# Lombok
+lombok.config
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
